@@ -4,15 +4,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@ResponseBody
+@RequestMapping("form")
 public class SkillsController {
-
-    //Handles request at path /form
-    @GetMapping("form")
+    //Handles request at path "/java"
+    @GetMapping("")
     @ResponseBody
-    public String Java {
+    public String java() {
         return "Java";
     }
+    // responds to "/javascript"
+    @GetMapping("")
+    @ResponseBody
+    public String JavaScript() {
+        return "JavaScript";
+    }
+    // responds to "/python"
+    @GetMapping("")
+    @ResponseBody
+    public String Python() {
+        return "Python";
+    }
     @GetMapping
+    @RequestMapping(value = "form", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public String skillsController() {
         String html =
